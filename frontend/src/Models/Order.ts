@@ -6,3 +6,4 @@ export interface Order{
 }
 
 export type CreateOrderDto = Omit<Order, 'id' | 'orderDate'>;
+export type UpdateOrderDto = Omit<Order, 'id' | 'orderDate'>;
