@@ -35,9 +35,9 @@ public class OrderService : IOrderService
         var order = new Order
         {
             Id = Guid.NewGuid(),
-            OrderDate = DateTime.UtcNow,
             CustomerName = createdOrderDto.CustomerName,
-            TotalAmount = createdOrderDto.TotalAmount
+            TotalAmount = createdOrderDto.TotalAmount,
+            OrderDate = DateTime.UtcNow,
         };
         _orders.Add(order);
         return order;

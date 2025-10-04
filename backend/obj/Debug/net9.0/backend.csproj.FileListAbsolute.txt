@@ -29,3 +29,4 @@
 /Users/eemena/Documents/projects/mini-orders-app/backend/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/eemena/Documents/projects/mini-orders-app/backend/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/eemena/Documents/projects/mini-orders-app/backend/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/backend.sourcelink.json
