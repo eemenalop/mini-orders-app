@@ -1,3 +1,4 @@
+namespace backend.Dtos;
 public class UpdateOrder
 {
     public string CustomerName { get; set; } = string.Empty;

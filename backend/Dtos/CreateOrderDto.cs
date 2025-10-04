@@ -1,3 +1,5 @@
+namespace backend.Dtos;
+
 public class CreateOrderDto
 {
     public string CustomerName { get; set; } = string.Empty;

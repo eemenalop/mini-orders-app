@@ -1,3 +1,8 @@
+namespace backend.Services;
+
+using backend.Models;
+using backend.Dtos;
+
 public interface IOrderService
 {
     List<Order> GetAllOrders();
