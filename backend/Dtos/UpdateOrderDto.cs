@@ -1,5 +1,5 @@
 namespace backend.Dtos;
-public class UpdateOrder
+public class UpdateOrderDto
 {
     public string CustomerName { get; set; } = string.Empty;
     public decimal TotalAmount { get; set; }

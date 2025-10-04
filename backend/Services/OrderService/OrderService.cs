@@ -15,19 +15,19 @@ public class OrderService : IOrderService
         return _orders.FirstOrDefault(o => o.Id == Id);
     }
 
-    public Order CreateOrder(CreateOrderDto newOrder)
+    public Order CreateOrder(CreateOrderDto createdOrderDto)
     {
-        if (string.IsNullOrEmpty(newOrder.CustomerName))
+        if (string.IsNullOrEmpty(createdOrderDto.CustomerName))
         {
             throw new ArgumentException("Customer name is required.");
         }
 
-        if (newOrder.CustomerName.Length < 3)
+        if (createdOrderDto.CustomerName.Length < 3)
         {
             throw new ArgumentException("Customer name must be over 2 characters.");
         }
 
-        if (newOrder.TotalAmount <= 0)
+        if (createdOrderDto.TotalAmount <= 0)
         {
             throw new ArgumentException("Total amount must be grater than 0");
         }
@@ -36,26 +36,26 @@ public class OrderService : IOrderService
         {
             Id = Guid.NewGuid(),
             OrderDate = DateTime.UtcNow,
-            CustomerName = newOrder.CustomerName,
-            TotalAmount = newOrder.TotalAmount
+            CustomerName = createdOrderDto.CustomerName,
+            TotalAmount = createdOrderDto.TotalAmount
         };
         _orders.Add(order);
         return order;
     }
 
-    public Order? UpdateOrder(Guid Id, UpdateOrder updatedOrder)
+    public Order? UpdateOrder(Guid Id, UpdateOrderDto updatedOrderDto)
     {
-        if (string.IsNullOrEmpty(updatedOrder.CustomerName))
+        if (string.IsNullOrEmpty(updatedOrderDto.CustomerName))
         {
             throw new ArgumentException("Customer name can not be empty.");
         }
 
-        if (updatedOrder.CustomerName.Length < 3)
+        if (updatedOrderDto.CustomerName.Length < 3)
         {
             throw new ArgumentException("Customer Name must be over 2 characters.");
         }
 
-        if (updatedOrder.TotalAmount <= 0)
+        if (updatedOrderDto.TotalAmount <= 0)
         {
             throw new ArgumentException("Total amount must be grater than 0");
         }
@@ -67,8 +67,8 @@ public class OrderService : IOrderService
             return null;
         }
 
-        existingOrder.CustomerName = updatedOrder.CustomerName;
-        existingOrder.TotalAmount = updatedOrder.TotalAmount;
+        existingOrder.CustomerName = updatedOrderDto.CustomerName;
+        existingOrder.TotalAmount = updatedOrderDto.TotalAmount;
 
         return existingOrder;
     }

@@ -9,8 +9,8 @@ public interface IOrderService
 {
     List<Order> GetAllOrders();
     Order? GetOrderById(Guid Id);
-    Order CreateOrder(CreateOrderDto newOrder);
-    Order? UpdateOrder(Guid Id, UpdateOrder updatedOrder);
+    Order CreateOrder(CreateOrderDto createdOrderDto);
+    Order? UpdateOrder(Guid Id, UpdateOrderDto updatedOrderDto);
     bool DeteleOrder(Guid Id);
 
 }
