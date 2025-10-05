@@ -2,8 +2,11 @@
 import { ref } from 'vue';
 import { useOrderStore } from '@/stores/orderStore';
 import { CreateOrderSchema } from '@/schemas/orderSchemas';
+import { useToast } from "vue-toastification";
+import router from '@/router';
 
 const store = useOrderStore();
+const toast = useToast();
 const customerName = ref('');
 const totalAmount = ref(0);
 const error = ref<string | null>(null);
@@ -20,6 +23,8 @@ async function handleSubmit() {
   }
   try {
     await store.createOrder(result.data);
+    toast.success("Order created successfully!");
+    router.push('/');
     customerName.value = '';
     totalAmount.value = 0;
   } catch (err) {
