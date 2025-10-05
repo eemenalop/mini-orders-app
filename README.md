@@ -95,33 +95,23 @@ This section provides a quick visual tour of the Mini Orders App's key functiona
 
 Upon launching the application, you'll see a list of all current orders. This view includes options to create new orders, view details, and delete existing ones.
 
-![Orders List View]
-`
-`
+<img width="1041" height="815" alt="Screenshot 2025-10-05 at 2 33 45 PM" src="https://github.com/user-attachments/assets/fb87937e-74ba-42d2-8212-ca7f4bd96e9f" />
 
 ### 2. Creating a New Order
 
 Clicking the "Create New Order" button navigates to a dedicated form. Here, you can input the customer's name and the total amount. Client-side validation is applied to ensure data integrity before submission.
 
-![Create Order Form]
-`
-`
+<img width="763" height="484" alt="Screenshot 2025-10-05 at 2 34 54 PM" src="https://github.com/user-attachments/assets/65e8abcd-ad45-43cf-b0ef-6718368056a0" />
+<img width="785" height="553" alt="Screenshot 2025-10-05 at 2 34 11 PM" src="https://github.com/user-attachments/assets/826bd12b-e39c-40c4-88ed-9a4f504d7e61" />
+<img width="735" height="508" alt="Screenshot 2025-10-05 at 2 39 47 PM" src="https://github.com/user-attachments/assets/9637c16c-9065-457b-ae16-a3e0a841918c" />
+<img width="1472" height="847" alt="Screenshot 2025-10-05 at 2 35 09 PM" src="https://github.com/user-attachments/assets/701114cb-fd7d-40b6-9dd6-8280e46012fa" />
 
 ### 3. Viewing Order Details
 
 Clicking "View Details" on any order in the list will take you to a dedicated page showing more information about that specific order.
 
-![Order Details View]
-`
-`
+<img width="839" height="360" alt="Screenshot 2025-10-05 at 2 35 35 PM" src="https://github.com/user-attachments/assets/81e0f2a4-0f7d-4dec-8acb-11bcd2f6eae1" />
 
-### 4. Deleting an Order
-
-To remove an order, simply click the "Delete" button next to it in the list view. A confirmation will ensure you don't accidentally remove an order.
-
-![Delete Order Confirmation]
-`
-`
 
 ## Personal Reflection
 
