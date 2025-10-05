@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using backend.Models;
 using backend.Dtos;
 using backend.Services;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace backend.Controllers;
 
@@ -17,10 +18,10 @@ public class OrdersController : ControllerBase
         _orderService = orderService;
     }
     [HttpGet]
-    public IActionResult GetAllOrders()
+    public IActionResult GetAllOrders([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 5)
     {
-        var orders = _orderService.GetAllOrders();
-        return Ok(orders);
+        var pagedResult = _orderService.GetAllOrders(pageNumber, pageSize);
+        return Ok(pagedResult);
     }
 
     [HttpGet("{id}")]

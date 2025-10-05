@@ -1,13 +1,21 @@
 using backend.Models;
 using backend.Dtos;
 using backend.Services;
+using backend.Helpers;
 
 public class OrderService : IOrderService
 {
     private static readonly List<Order> _orders = new List<Order>();
-    public List<Order> GetAllOrders()
+    public PagedResult<Order> GetAllOrders(int pageNumber = 1, int pageSize = 5)
     {
-        return _orders;
+        var totalCount = _orders.Count;
+        var items = _orders
+            .OrderByDescending(o => o.OrderDate)
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+        return new PagedResult<Order> { Items = items, TotalCount = totalCount };
     }
 
     public Order? GetOrderById(Guid Id)
