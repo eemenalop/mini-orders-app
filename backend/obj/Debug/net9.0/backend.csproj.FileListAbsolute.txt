@@ -8,6 +8,9 @@
 /Users/eemena/Documents/projects/mini-orders-app/backend/bin/Debug/net9.0/backend.pdb
 /Users/eemena/Documents/projects/mini-orders-app/backend/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
 /Users/eemena/Documents/projects/mini-orders-app/backend/bin/Debug/net9.0/Microsoft.OpenApi.dll
+/Users/eemena/Documents/projects/mini-orders-app/backend/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/eemena/Documents/projects/mini-orders-app/backend/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/eemena/Documents/projects/mini-orders-app/backend/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/backend.csproj.AssemblyReference.cache
 /Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/backend.GeneratedMSBuildEditorConfig.editorconfig
 /Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/backend.AssemblyInfoInputs.cache
@@ -15,6 +18,7 @@
 /Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/backend.csproj.CoreCompileInputs.cache
 /Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/backend.MvcApplicationPartsAssemblyInfo.cs
 /Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/backend.MvcApplicationPartsAssemblyInfo.cache
+/Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/backend.sourcelink.json
 /Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/scopedcss/bundle/backend.styles.css
 /Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/staticwebassets.build.json
 /Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/staticwebassets.build.json.cache
@@ -26,7 +30,3 @@
 /Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/backend.pdb
 /Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/backend.genruntimeconfig.cache
 /Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/ref/backend.dll
-/Users/eemena/Documents/projects/mini-orders-app/backend/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
-/Users/eemena/Documents/projects/mini-orders-app/backend/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
-/Users/eemena/Documents/projects/mini-orders-app/backend/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
-/Users/eemena/Documents/projects/mini-orders-app/backend/obj/Debug/net9.0/backend.sourcelink.json
