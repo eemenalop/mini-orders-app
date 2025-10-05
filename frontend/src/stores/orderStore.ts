@@ -8,6 +8,9 @@ interface OrderState{
     currentOrder: Order | null;
     isLoading: boolean;
     error: string | null;
+    currentPage: number;
+    pageSize: number;
+    totalCount: number;
 }
 
 export const useOrderStore = defineStore('orders', {
@@ -16,20 +19,26 @@ export const useOrderStore = defineStore('orders', {
         currentOrder: null,
         isLoading: false,
         error: null,
+        currentPage: 1,
+        pageSize: 5,
+        totalCount: 0,
     }),
 
     getters: {
-        totalOrders: (state) => state.orders.length,
+        totalPages: (state) => Math.ceil(state.totalCount / state.pageSize),
     },
 
     actions: {
-        async fetchOrders(){
+        async fetchOrders(page = 1){
             this.isLoading = true;
             this.error = null;
             try {
-                const response = await fetch(API_URL);
+                const response = await fetch(`${API_URL}?pageNumber=${page}&pageSize=${this.pageSize}`);
                 if(!response.ok) throw new Error('Error getting orders.')
-                    this.orders = await response.json();
+                const data = await response.json();
+                this.orders = data.items;
+                this.totalCount = data.totalCount;
+                this.currentPage = page;
             } catch (err) {
                 this.error = (err as Error).message;
             } finally{

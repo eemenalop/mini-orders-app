@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { useOrderStore } from '@/stores/orderStore';
-import { RouterLink } from 'vue-router';
+import { RouterLink } from 'vue-router';      // <-- 1. IMPORTACIÓN QUE FALTABA
+import Pagination from './Pagination.vue';  // Ya lo tenías, ¡bien!
 
 const store = useOrderStore();
+
 onMounted(() => {
   store.fetchOrders();
 });
@@ -20,7 +22,7 @@ onMounted(() => {
       <strong>Error:</strong> {{ store.error }}
     </div>
     <div v-else-if="store.orders.length === 0" class="mt-4 p-10 text-center text-slate-400 bg-slate-800/50 rounded-b-lg">
-      No orders yet. Create the first one!
+      No orders to display.
     </div>
 
     <ul v-else role="list" class="divide-y divide-white/5">
@@ -49,5 +51,7 @@ onMounted(() => {
         </div>
       </li>
     </ul>
+
+    <Pagination v-if="store.totalPages > 1" />
   </div>
 </template>
