@@ -8,34 +8,38 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="mt-8">
-    <h2 class="text-2xl font-bold mb-4">Órdenes Recientes</h2>
+  <div>
+    <div class="border-b border-white/10 px-4 py-5 sm:px-6">
+      <h2 class="text-base font-semibold leading-7 text-white">Órdenes Recientes</h2>
+    </div>
 
-    <div v-if="store.isLoading" class="text-center">Cargando...</div>
+    <div v-if="store.isLoading" class="text-center p-10 text-slate-400">Cargando...</div>
+    <div v-else-if="store.error" class="mt-4 p-4 bg-red-900/50 text-red-300 rounded-lg">
+      <strong>Error:</strong> {{ store.error }}
+    </div>
+    <div v-else-if="store.orders.length === 0" class="mt-4 p-10 text-center text-slate-400 bg-slate-800/50 rounded-b-lg">
+      Aún no hay órdenes. ¡Crea la primera!
+    </div>
 
-    <div v-else-if="store.error" class="p-4 bg-red-900 text-red-200 rounded-lg">{{ store.error }}</div>
-
-    <table v-else-if="store.orders.length > 0" class="w-full text-left table-auto">
-      <thead>
-        <tr class="bg-slate-800">
-          <th class="p-2">Cliente</th>
-          <th class="p-2">Fecha</th>
-          <th class="p-2 text-right">Total</th>
-          <th class="p-2">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="order in store.orders" :key="order.id" class="border-b border-slate-800">
-          <td class="p-2">{{ order.customerName }}</td>
-          <td class="p-2">{{ new Date(order.orderDate).toLocaleDateString() }}</td>
-          <td class="p-2 text-right">${{ order.totalAmount.toFixed(2) }}</td>
-          <td class="p-2">
-            <button @click="store.deleteOrder(order.id)" class="text-red-500 hover:text-red-400">Eliminar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div v-else class="p-4 bg-slate-800 rounded-lg text-center">No hay órdenes para mostrar.</div>
+    <ul v-else role="list" class="divide-y divide-white/5">
+      <li v-for="order in store.orders" :key="order.id" class="relative flex items-center space-x-4 px-4 py-4 sm:px-6">
+        <div class="min-w-0 flex-auto">
+          <div class="flex items-center gap-x-3">
+            <h2 class="min-w-0 text-sm font-semibold leading-6 text-white">
+              {{ order.customerName }}
+            </h2>
+          </div>
+          <div class="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-slate-400">
+            <p>{{ new Date(order.orderDate).toLocaleString() }}</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-end">
+          <p class="text-lg font-semibold text-cyan-400">${{ order.totalAmount.toFixed(2) }}</p>
+           <button @click="store.deleteOrder(order.id)" class="text-xs text-red-500 hover:text-red-400 transition-colors mt-1">
+            Eliminar
+          </button>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>

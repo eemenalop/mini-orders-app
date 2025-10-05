@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import { useOrderStore } from '@/stores/orderStore';
 
 const store = useOrderStore();
-
 const customerName = ref('');
 const totalAmount = ref(0);
 const error = ref<string | null>(null);
@@ -24,21 +23,32 @@ async function handleSubmit() {
 </script>
 
 <template>
-  <div>
-    <h2 class="text-2xl font-bold mb-4">Crear Nueva Orden</h2>
-    <form @submit.prevent="handleSubmit" class="p-4 bg-slate-800 rounded-lg shadow-md">
-      <div class="mb-4">
-        <label for="name" class="block mb-1 font-medium">Nombre del Cliente</label>
-        <input v-model="customerName" type="text" id="name" class="w-full p-2 rounded bg-slate-700 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-500"/>
+  <div class="sticky top-8">
+    <div class="border-b border-white/10 px-4 py-5 sm:px-6">
+      <h2 class="text-base font-semibold leading-7 text-white">Crear Nueva Orden</h2>
+    </div>
+
+    <form @submit.prevent="handleSubmit" class="p-6 bg-slate-800/50 rounded-b-lg shadow-lg space-y-4">
+      <div>
+        <label for="name" class="block text-sm font-medium leading-6 text-slate-400">Nombre del Cliente</label>
+        <div class="mt-2">
+          <input v-model="customerName" type="text" id="name" placeholder="Ej: John Doe" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6" />
+        </div>
       </div>
-      <div class="mb-4">
-        <label for="total" class="block mb-1 font-medium">Monto Total</label>
-        <input v-model.number="totalAmount" type="number" id="total" step="0.01" class="w-full p-2 rounded bg-slate-700 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-500"/>
+      <div>
+        <label for="total" class="block text-sm font-medium leading-6 text-slate-400">Monto Total</label>
+        <div class="mt-2">
+          <input v-model.number="totalAmount" type="number" id="total" step="0.01" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-3 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6" />
+        </div>
       </div>
-      <div v-if="error" class="text-red-500 mb-2 text-sm">{{ error }}</div>
-      <button type="submit" :disabled="store.isLoading" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition-colors disabled:bg-slate-600">
-        {{ store.isLoading ? 'Guardando...' : 'Guardar Orden' }}
-      </button>
+      
+      <div v-if="error" class="text-red-400 text-sm pt-2">{{ error }}</div>
+      
+      <div class="pt-4">
+        <button type="submit" :disabled="store.isLoading" class="w-full rounded-md bg-cyan-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 disabled:bg-slate-700 disabled:cursor-not-allowed">
+          {{ store.isLoading ? 'Guardando...' : 'Guardar Orden' }}
+        </button>
+      </div>
     </form>
   </div>
 </template>
